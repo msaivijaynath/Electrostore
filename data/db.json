@@ -1,0 +1,169 @@
+{
+  "users": [
+    {
+      "id": "user_admin_1",
+      "name": "Store Admin",
+      "email": "admin@store.com",
+      "passwordHash": "$2b$10$s4QrEmPBUEYso15HB2pFKOUpXDkaGj4H75Sw.n7D2wWyms/iavqgm",
+      "role": "admin",
+      "wishlist": [],
+      "createdAt": "2026-06-29T13:27:37.874Z"
+    },
+    {
+      "id": "user_customer_1",
+      "name": "Jane Doe",
+      "email": "customer@store.com",
+      "passwordHash": "$2b$10$VuXMo8qDklsdY3dr4Zavo.1OE7FO3YaeOonZzV.OjQLuE2gSGVISe",
+      "role": "customer",
+      "wishlist": [],
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_1",
+      "name": "Over-Ear ANC Headset",
+      "price": 249.99,
+      "description": "Immersive sound experience with advanced active noise-canceling, 40-hour long-lasting battery life, and plush leather earcups.",
+      "category": "Electronics",
+      "stock": 12,
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+      "reviews": [
+        {
+          "id": "rev_1",
+          "name": "Robert Miller",
+          "rating": 5,
+          "comment": "Absolutely stunning active noise canceling! Deep rich bass, very comfortable for long hours.",
+          "createdAt": "2026-06-26T13:27:38.033Z"
+        },
+        {
+          "id": "rev_2",
+          "name": "Sarah Chen",
+          "rating": 4,
+          "comment": "Battery life is outstanding. Sound is crisp, slightly heavier than expected but very high quality.",
+          "createdAt": "2026-06-28T13:27:38.033Z"
+        }
+      ],
+      "rating": 4.5,
+      "numReviews": 2,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_2",
+      "name": "Pro Mechanical Keyboard",
+      "price": 129.99,
+      "description": "Tenkeyless layout with premium linear red switches, hot-swappable keycaps, and customizable dynamic RGB lighting.",
+      "category": "Electronics",
+      "stock": 8,
+      "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_3",
+      "name": "Signature Smartwatch v2",
+      "price": 199.99,
+      "description": "Continuous heart-rate tracking, customizable dynamic widget dial faces, built-in GPS, and seamless iOS/Android notification mirroring.",
+      "category": "Wearables",
+      "stock": 15,
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+      "reviews": [
+        {
+          "id": "rev_3",
+          "name": "David Hunt",
+          "rating": 5,
+          "comment": "The GPS tracker is very precise. Dial faces are clean and easy to customize!",
+          "createdAt": "2026-06-24T13:27:38.033Z"
+        }
+      ],
+      "rating": 5,
+      "numReviews": 1,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_4",
+      "name": "Ergonomic Wireless Mouse",
+      "price": 79.99,
+      "description": "Precision tracking sensor, hyper-fast scroll wheel, customizable thumb buttons, and ergonomic grip supporting natural wrist posture.",
+      "category": "Accessories",
+      "stock": 25,
+      "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_5",
+      "name": "Ultra-Wide Curved Display",
+      "price": 449.99,
+      "description": "34-inch panoramic curved monitor featuring 144Hz refresh rate, HDR10 visual accuracy, and dual-source split view capabilities.",
+      "category": "Electronics",
+      "stock": 5,
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_6",
+      "name": "Compact Power Delivery Bank",
+      "price": 49.99,
+      "description": "20,000mAh capacity pocket charger with dual high-speed USB-C ports and ultra-rugged casing.",
+      "category": "Accessories",
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1609592424085-f5b1287950ff?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_7",
+      "name": "Minimalist Commuter Pack",
+      "price": 89.99,
+      "description": "Weatherproof outer shield with dynamic organizational pockets, dedicated shockproof notebook sleeve, and hidden travel passport slot.",
+      "category": "Accessories",
+      "stock": 14,
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    },
+    {
+      "id": "prod_8",
+      "name": "Pro Wireless Lavalier Mic",
+      "price": 159.99,
+      "description": "Dual-transmitter setup with real-time crystal clear audio processing, charging case, and universal phone compatibility.",
+      "category": "Mobiles",
+      "stock": 10,
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",
+      "reviews": [],
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-06-29T13:27:38.033Z"
+    }
+  ],
+  "orders": [],
+  "coupons": [
+    {
+      "code": "SAVE10",
+      "discountPercent": 10,
+      "active": true
+    },
+    {
+      "code": "SUPER30",
+      "discountPercent": 30,
+      "active": true
+    },
+    {
+      "code": "WELCOME50",
+      "discountPercent": 50,
+      "active": true
+    }
+  ]
+}
