@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 
 import { Product, CartItem, User, Order, AdminStats, ShippingAddress } from './types';
+import { API_BASE } from './config.ts';
 import Navbar from './components/Navbar.tsx';
 import ProductCard from './components/ProductCard.tsx';
 const ProductCardAny = ProductCard as any;
@@ -157,7 +158,7 @@ export default function App() {
       if (selectedCategory !== 'All') queryParams.append('category', selectedCategory);
       if (selectedSort) queryParams.append('sort', selectedSort);
 
-      const res = await fetch(`/api/products?${queryParams.toString()}`);
+      const res = await fetch(`${API_BASE}/api/products?${queryParams.toString()}`);
       if (!res.ok) throw new Error('Failed to fetch products');
       const data = await res.json();
       setProducts(data);
@@ -176,7 +177,7 @@ export default function App() {
 
   const fetchSingleProduct = async (id: string) => {
     try {
-      const res = await fetch(`/api/products/${id}`);
+      const res = await fetch(`${API_BASE}/api/products/${id}`);
       if (!res.ok) throw new Error('Product not found');
       const data = await res.json();
       setSelectedProduct(data);
@@ -189,7 +190,7 @@ export default function App() {
   const fetchUserOrders = async () => {
     if (!token) return;
     try {
-      const res = await fetch('/api/orders/my-orders', {
+      const res = await fetch(`${API_BASE}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (!res.ok) throw new Error('Failed to fetch orders');
@@ -204,7 +205,7 @@ export default function App() {
     if (!token || user?.role !== 'admin') return;
     try {
       // Fetch Statistics
-      const statsRes = await fetch('/api/admin/stats', {
+      const statsRes = await fetch(`${API_BASE}/api/admin/stats`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (statsRes.ok) {
@@ -213,7 +214,7 @@ export default function App() {
       }
 
       // Fetch All Store Orders
-      const ordersRes = await fetch('/api/orders', {
+      const ordersRes = await fetch(`${API_BASE}/api/orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (ordersRes.ok) {
@@ -228,7 +229,7 @@ export default function App() {
   const handleLogin = async (e: React.FormEvent, credentials: { email: string; password: string }) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(`${API_BASE}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)
@@ -259,7 +260,7 @@ export default function App() {
   const handleRegister = async (e: React.FormEvent, profile: { name: string; email: string; password: string }) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch(`${API_BASE}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile)
@@ -345,7 +346,7 @@ export default function App() {
     if (!couponCode.trim()) return;
 
     try {
-      const res = await fetch(`/api/coupons/validate?code=${encodeURIComponent(couponCode)}`);
+      const res = await fetch(`${API_BASE}/api/coupons/validate?code=${encodeURIComponent(couponCode)}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Invalid coupon');
 
@@ -375,7 +376,7 @@ export default function App() {
         image: i.image
       }));
 
-      const res = await fetch('/api/orders', {
+      const res = await fetch(`${API_BASE}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -416,7 +417,7 @@ export default function App() {
     }
 
     try {
-      const res = await fetch('/api/auth/wishlist', {
+      const res = await fetch(`${API_BASE}/api/auth/wishlist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -446,7 +447,7 @@ export default function App() {
   const handleAddReview = async (productId: string, ratingValue: number, commentValue: string): Promise<boolean> => {
     if (!token) return false;
     try {
-      const res = await fetch(`/api/products/${productId}/review`, {
+      const res = await fetch(`${API_BASE}/api/products/${productId}/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -473,7 +474,7 @@ export default function App() {
 
   const handleAddProduct = async (productPayload: Omit<Product, 'id' | 'reviews' | 'rating' | 'numReviews' | 'createdAt'>): Promise<boolean> => {
     try {
-      const res = await fetch('/api/products', {
+      const res = await fetch(`${API_BASE}/api/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -497,7 +498,7 @@ export default function App() {
 
   const handleUpdateProduct = async (id: string, productPayload: Partial<Product>): Promise<boolean> => {
     try {
-      const res = await fetch(`/api/products/${id}`, {
+      const res = await fetch(`${API_BASE}/api/products/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -521,7 +522,7 @@ export default function App() {
 
   const handleDeleteProduct = async (id: string): Promise<boolean> => {
     try {
-      const res = await fetch(`/api/products/${id}`, {
+      const res = await fetch(`${API_BASE}/api/products/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -541,7 +542,7 @@ export default function App() {
 
   const handleUpdateOrderStatus = async (orderId: string, nextStatus: 'pending' | 'shipped' | 'delivered'): Promise<boolean> => {
     try {
-      const res = await fetch(`/api/orders/${orderId}/status`, {
+      const res = await fetch(`${API_BASE}/api/orders/${orderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

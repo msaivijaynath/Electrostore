@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, X, Upload, Save, AlertCircle, Eye, RefreshCw, Check } from 'lucide-react';
 import { Product } from '../../types';
+import { API_BASE } from '../../config.ts';
 
 interface ProductsViewProps {
   products: Product[];
@@ -83,7 +84,7 @@ export default function ProductsView({
     setFormError(null);
 
     try {
-      const response = await fetch('/api/products/upload', {
+      const response = await fetch(`${API_BASE}/api/products/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
